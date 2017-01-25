@@ -32,8 +32,11 @@
             //    i += 3;
             //}
             #endregion
+
+            
             for (int i = 0; i < amountPages; i++)
             {
+                string temp = string.Empty;
                 if (i % 8 < 4)
                 {
                     OddPages += (i + 1).ToString();
@@ -42,9 +45,10 @@
                 }
                 else
                 {
-                    EvenPages += (i + 1).ToString();
-                    EvenPages += (i + 1 == amountPages) ? string.Empty : $"-{(i + 4 > amountPages ? amountPages : i + 4)}";
-                    EvenPages += $"{(amountPages - i > 8 ? ", " : string.Empty)}";
+                    temp += (i + 1).ToString();
+                    temp += (i + 1 == amountPages) ? string.Empty : $"-{(i + 4 > amountPages ? amountPages : i + 4)}";
+                    temp += ", ";
+                    EvenPages = temp + EvenPages;
                 }
                 i += 3;
             }
